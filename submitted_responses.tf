@@ -23,3 +23,7 @@ resource "aws_dynamodb_table" "submitted_responses_table" {
 output "submitted_responses_table_name" {
   value = "${aws_dynamodb_table.submitted_responses_table.name}"
 }
+
+output "submitted_responses_table_arn" {
+  value = "${aws_dynamodb_table.submitted_responses_table.arn}"
+}
