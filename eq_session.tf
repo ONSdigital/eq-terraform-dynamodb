@@ -9,6 +9,11 @@ resource "aws_dynamodb_table" "eq_session_table" {
     type = "S"
   }
 
+  ttl {
+    attribute_name = "expires_at"
+    enabled        = true
+  }
+
   tags {
     Name        = "${var.env}-eq-session"
     Environment = "${var.env}"
