@@ -5,7 +5,7 @@ terraform {
 }
 
 provider "aws" {
-  version    = ">= 1.17.0"
+  version = ">= 1.51.0"
 
   allowed_account_ids = ["${var.aws_account_id}"]
   assume_role {
