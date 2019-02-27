@@ -1,5 +1,5 @@
 resource "aws_dynamodb_table" "author_questionnaires_table" {
-  name           = "${var.env}-author-questionnaires"
+  name           = "${var.env}-questionnaires"
   hash_key       = "id"
   billing_mode   = "PAY_PER_REQUEST"
 
@@ -9,7 +9,7 @@ resource "aws_dynamodb_table" "author_questionnaires_table" {
   }
 
   tags {
-    Name        = "${var.env}-author-questionnaires"
+    Name        = "${var.env}-questionnaires"
     Environment = "${var.env}"
   }
 
@@ -19,7 +19,7 @@ resource "aws_dynamodb_table" "author_questionnaires_table" {
 }
 
 resource "aws_cloudwatch_metric_alarm" "author_questionnaires_table_read_throttled" {
-  alarm_name          = "${var.env}-dynamodb-author-questionnaires-read-throttled"
+  alarm_name          = "${var.env}-dynamodb-questionnaires-read-throttled"
   comparison_operator = "GreaterThanOrEqualToThreshold"
   evaluation_periods  = "1"
   metric_name         = "ReadThrottleEvents"
@@ -36,7 +36,7 @@ resource "aws_cloudwatch_metric_alarm" "author_questionnaires_table_read_throttl
 }
 
 resource "aws_cloudwatch_metric_alarm" "author_questionnaires_table_write_throttled" {
-  alarm_name          = "${var.env}-dynamodb-author-questionnaires-write-throttled"
+  alarm_name          = "${var.env}-dynamodb-questionnaires-write-throttled"
   comparison_operator = "GreaterThanOrEqualToThreshold"
   evaluation_periods  = "1"
   metric_name         = "WriteThrottleEvents"
